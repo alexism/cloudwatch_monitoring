@@ -122,7 +122,7 @@ if iam_role.empty?
     variables :cw_mon => vars
   end
 
-  options << "--aws-credential-file #{install_path}/aws-scripts-mon/awscreds.conf"
+  options << "--aws-credential-file #{install_path}/awscreds.conf"
 else
   log "IAM role available: #{iam_role}"
 end
