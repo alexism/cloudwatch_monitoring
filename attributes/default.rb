@@ -2,6 +2,7 @@
 
 default[:cw_mon][:user]              = "cw_monitoring"
 default[:cw_mon][:group]             = "cw_monitoring"
+default[:cw_mon][:as_system]         = false
 default[:cw_mon][:home_dir]          = "/home/#{node[:cw_mon][:user]}"
 default[:cw_mon][:version]           = "1.1.0"
 default[:cw_mon][:release_url]       = "http://ec2-downloads.s3.amazonaws.com/cloudwatch-samples/CloudWatchMonitoringScripts-v1.1.0.zip"

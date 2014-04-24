@@ -55,11 +55,13 @@ end
 
 group node[:cw_mon][:group] do
   action :create
+  system node[:cw_mon][:as_system]
 end
 
 user node[:cw_mon][:user] do
   home node[:cw_mon][:home_dir]
   group node[:cw_mon][:group]
+  system node[:cw_mon][:as_system]
   action :create
 end
 
