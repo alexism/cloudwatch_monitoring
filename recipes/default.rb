@@ -27,30 +27,23 @@ install_path="#{node[:cw_mon][:home_dir]}/aws-scripts-mon-v#{node[:cw_mon][:vers
 zip_filepath="#{node[:cw_mon][:home_dir]}/CloudWatchMonitoringScripts-v#{node[:cw_mon][:version]}.zip"
 
 case node[:platform_family]
-  when 'rhel'
-    %w{unzip perl-CPAN}.each do |p|
-      package p
+when 'debian'
+  %w{unzip libwww-perl libcrypt-ssleay-perl}.each do |p|
+    package p do
+      action :install
     end
-
-    %w{Test::More Bundle::LWP5_837 Bundle::LWP}.each do |m|
-      execute "install Perl module #{m}" do
-        command "perl -MCPAN -e 'install #{m}' < /dev/null"
-        not_if { ::File.directory?(install_path) }
-      end
+  end
+when 'rhel'
+  %w{perl-libwww-perl perl-Crypt-SSLeay}.each do |p|
+    package p do
+      action :install
     end
-
-  when 'debian'
-
-    %w{unzip libwww-perl libcrypt-ssleay-perl}.each do |p|
-      package p do
-        action :install
-      end
-    end
-
-  else
-    log "#{node[:platform_family]} is not supported" do
-      level :warn
-    end
+  end
+else
+  include_recipe 'perl'
+  %w{Test::More Bundle::LWP}.each do |m|
+    cpan_module m
+  end
 end
 
 group node[:cw_mon][:group] do

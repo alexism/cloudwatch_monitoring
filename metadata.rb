@@ -10,6 +10,6 @@ version "1.2.0"
   supports os
 end
 
-%w{cron}.each do |cookbook|
+%w{cron perl}.each do |cookbook|
   depends cookbook
 end
