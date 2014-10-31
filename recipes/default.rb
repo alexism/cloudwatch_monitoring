@@ -26,6 +26,8 @@ include_recipe 'cron'
 install_path="#{node[:cw_mon][:home_dir]}/aws-scripts-mon-v#{node[:cw_mon][:version]}"
 zip_filepath="#{node[:cw_mon][:home_dir]}/CloudWatchMonitoringScripts-v#{node[:cw_mon][:version]}.zip"
 
+package 'unzip'
+
 case node[:platform_family]
 when 'debian'
   %w{unzip libwww-perl libcrypt-ssleay-perl}.each do |p|
