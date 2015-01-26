@@ -41,7 +41,7 @@ case node[:platform_family]
 
   when 'debian'
 
-    %w{unzip libwww-perl libcrypt-ssleay-perl}.each do |p|
+    %w{unzip libwww-perl libcrypt-ssleay-perl libswitch-perl}.each do |p|
       package p do
         action :install
       end
