@@ -1,18 +1,13 @@
-# CHANGELOG for cloudwatch_monitoring
+cloudwatch-linux CHANGELOG
+==========================
 
-This file is used to list changes made in each version of cloudwatch_monitoring.
+This file is used to list changes made in each version of the cloudwatch-linux cookbook.
 
-## 1.2.0:
-* query instance metadata to get instance role instead of EC2 Ohai attribute.
+0.1.0
+-----
+- [your_name] - Initial release of cloudwatch-linux
 
-## 1.1.2:
-* fix credentials path. Thanks @(sepetov](https://github.com/sepetrov)
+- - -
+Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 
-## 1.1.1:
-* add missing dependency on cron cookbook
-
-## 1.1.0:
-* support for RHEL
-
-## 1.0.0
-* initial relase
+The [Github Flavored Markdown page](http://github.github.com/github-flavored-markdown/) describes the differences between markdown on github and standard markdown.
